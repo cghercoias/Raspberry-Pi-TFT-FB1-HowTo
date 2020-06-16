@@ -25,7 +25,7 @@ Tested on v1.2 of this display:
 SSH into the RPI
 
 ```bash
-git clone https://github.com/goodtft/LCD-show.git
+git clone https://github.com/cghercoias/LCD-show.git
 cd LCD-show/
 sudo cp ./usr/tft9341-overlay.dtb /boot/overlays/tft9341.dtbo
 ```
