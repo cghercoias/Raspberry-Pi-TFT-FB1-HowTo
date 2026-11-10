@@ -1,5 +1,7 @@
 ## Display framebuffer /dev/fb1 on the TFT.
 
+## Works for me. Use at your own risk.
+
 Works with 2.8" 320*240 ILI9341 TFT
 
 Tested on v1.2 of this display:
@@ -27,13 +29,17 @@ SSH into the RPI
 ```bash
 git clone https://github.com/cghercoias/LCD-show.git
 cd LCD-show/
-sudo cp ./usr/tft9341-overlay.dtb /boot/overlays/tft9341.dtbo
+sudo cp ./usr/tft9341-overlay.dtb /boot/firmware/overlays/tft9341.dtbo
 ```
 
 Update the boot/config.txt file
-
+Depending on your moode version
 ```bash
 sudo nano /boot/config.txt
+```
+or
+```bash
+sudo nano /boot/firmware/config.txt
 ```
 
 add these lines at the end.
@@ -46,9 +52,9 @@ dtparam=spi=on
 #dtoverlay=tft9341:rotate=270
 dtoverlay=tft9341:rotate=270
 # sets tft backlight pin on
-#gpio=13=op,dh
+gpio=13=op,dh
 # or off at startup
-gpio=13=op,dl
+#gpio=13=op,dl
 ```
 
 3. Reboot and test
